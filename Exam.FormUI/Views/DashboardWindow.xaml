@@ -1,0 +1,147 @@
+﻿<Window x:Class="Exam.FormUI.Views.DashboardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:model="clr-namespace:Exam.FormUI.ViewModels"
+        xmlns:collection="clr-namespace:Exam.FormUI.Models.ObservableCollections"
+        mc:Ignorable="d"
+        Title="{DynamicResource Title}"
+        Height="720"
+        Width="1280"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResizeWithGrip"
+        Style="{DynamicResource WindowStyle}"
+        MinHeight="605"
+        MinWidth="412">
+    <Window.DataContext>
+        <model:DashboardWindowViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <ObjectDataProvider x:Key="Categories"
+                            MethodName="GetData"
+                            ObjectType="{x:Type collection:ProductsCategories}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="collection:ProductsCategories" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="Manufactureries"
+                            MethodName="GetData"
+                            ObjectType="{x:Type collection:ProductsManufactureries}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="collection:ProductsManufactureries" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Ctrl"
+                    Key="N"
+                    Command="{Binding Path=NewCommand}" />
+        <KeyBinding Modifiers="Ctrl"
+                    Key="S"
+                    Command="{Binding Path=SaveCommand}" />
+        <KeyBinding Modifiers="Alt"
+                    Key="F4"
+                    Command="{Binding Path=ExitCommand}" />
+        <KeyBinding Modifiers="Ctrl+Shift"
+                    Key="N"
+                    Command="{Binding Path=AddCommand}" />
+        <KeyBinding Modifiers=""
+                    Key="Delete"
+                    Command="{Binding Path=RemoveCommand}" />
+    </Window.InputBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Menu Grid.Row="0"
+              Background="#E2EAFC"
+              Grid.ColumnSpan="2">
+            <MenuItem Header="{DynamicResource File}">
+                <MenuItem Header="{DynamicResource New}"
+                          Command="{Binding NewCommand}"
+                          InputGestureText="Ctrl+N" />
+                <Separator />
+                <MenuItem Header="{DynamicResource Save}"
+                          Command="{Binding SaveCommand}"
+                          InputGestureText="Ctrl+S" />
+                <Separator />
+                <MenuItem Header="{DynamicResource Exit}"
+                          Command="{Binding ExitCommand}"
+                          InputGestureText="Alt+F4" />
+            </MenuItem>
+            <MenuItem Header="{DynamicResource Product}">
+                <MenuItem Header="{DynamicResource Add}"
+                          Command="{Binding AddCommand}"
+                          InputGestureText="Ctrl+Shift+N" />
+                <Separator />
+                <MenuItem Header="{DynamicResource Remove}"
+                          Command="{Binding RemoveCommand}"
+                          InputGestureText="Delete" />
+            </MenuItem>
+            <MenuItem Header="{DynamicResource Options}"
+                      Command="{Binding OptionsCommand}" />
+        </Menu>
+        <ListBox Margin="5"
+                 Grid.Row="1"
+                 ItemsSource="{Binding Products}"
+                 SelectedItem="{Binding Product}"
+                 Style="{DynamicResource ListBoxStyle}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Margin="5"
+                    Grid.Row="1"
+                    Grid.Column="1">
+            <Label Content="{DynamicResource Id}"
+                   Margin="40,0,40,0" />
+            <TextBox Text="{Binding Product.Id,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                     Style="{DynamicResource TextBoxStyle}" />
+            <Label Content="{DynamicResource Name}"
+                   Style="{DynamicResource LabelStyle}" />
+            <TextBox Text="{Binding Product.Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                     Style="{DynamicResource TextBoxStyle}" />
+            <Label Content="{DynamicResource Category}"
+                   Style="{DynamicResource LabelStyle}" />
+            <ComboBox Style="{DynamicResource ComboBoxStyle}"
+                      ItemsSource="{Binding Categories}"
+                      SelectedIndex="{Binding Product.Category.Current}" />
+            <Label Content="{DynamicResource Manufacturer}"
+                   Style="{DynamicResource LabelStyle}" />
+            <ComboBox Style="{DynamicResource ComboBoxStyle}"
+                      ItemsSource="{Binding Manufactureries}"
+                      SelectedIndex="{Binding Product.Manufacturer.Current}" />
+            <Label Content="{DynamicResource Price}"
+                   Style="{DynamicResource LabelStyle}" />
+            <TextBox Text="{Binding Product.Price,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                     Style="{DynamicResource TextBoxStyle}" />
+            <Label Content="{DynamicResource Year}"
+                   Style="{DynamicResource LabelStyle}" />
+            <TextBox Text="{Binding Product.Year,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                     Style="{DynamicResource TextBoxStyle}" />
+            <StackPanel Margin="80"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Button Width="110"
+                        Content="{DynamicResource Add}"
+                        Margin="0,0,15,0"
+                        Command="{Binding AddCommand}" />
+                <Button Width="110"
+                        Content="{DynamicResource Remove}"
+                        Margin="0,0,15,0"
+                        Command="{Binding RemoveCommand}" />
+                <Button Content="{DynamicResource Photo}"
+                        Width="110"
+                        Command="{Binding PhotoCommand}" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Add">_Add</system:String>
+    <system:String x:Key="AddPhoto">Add photo</system:String>
+    <system:String x:Key="Back">Back</system:String>
+    <system:String x:Key="Category">Category</system:String>
+    <system:String x:Key="Photo">Photo</system:String>
+    <system:String x:Key="Exit">_Exit</system:String>
+    <system:String x:Key="File">_File</system:String>
+    <system:String x:Key="Forward">Forward</system:String>
+    <system:String x:Key="Id">ID</system:String>
+    <system:String x:Key="Localization">Localization</system:String>
+    <system:String x:Key="Manufacturer">Manufacturer</system:String>
+    <system:String x:Key="Name">Name</system:String>
+    <system:String x:Key="New">_New</system:String>
+    <system:String x:Key="Options">_Options...</system:String>
+    <system:String x:Key="Price">Price</system:String>
+    <system:String x:Key="Product">_Product</system:String>
+    <system:String x:Key="Remove">_Remove</system:String>
+    <system:String x:Key="RemovePhoto">Remove photo</system:String>
+    <system:String x:Key="Save">_Save</system:String>
+    <system:String x:Key="Settings">Settings</system:String>
+    <system:String x:Key="Theme">Theme</system:String>
+    <system:String x:Key="Title">Products Info</system:String>
+    <system:String x:Key="Year">Year</system:String>
+</ResourceDictionary>

@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Add">_Добавить</system:String>
+    <system:String x:Key="AddPhoto">Добавить фото</system:String>
+    <system:String x:Key="Back">Назад</system:String>
+    <system:String x:Key="Category">Категория</system:String>
+    <system:String x:Key="Photo">Фото</system:String>
+    <system:String x:Key="Exit">_Выйти</system:String>
+    <system:String x:Key="File">_Файл</system:String>
+    <system:String x:Key="Forward">Вперед</system:String>
+    <system:String x:Key="Id">Код товара</system:String>
+    <system:String x:Key="Localization">Локазализация</system:String>
+    <system:String x:Key="Manufacturer">Производитель</system:String>
+    <system:String x:Key="Name">Название</system:String>
+    <system:String x:Key="New">_Новый</system:String>
+    <system:String x:Key="Options">_Настройки...</system:String>
+    <system:String x:Key="Price">Цена</system:String>
+    <system:String x:Key="Product">_Продукт</system:String>
+    <system:String x:Key="Remove">_Удалить</system:String>
+    <system:String x:Key="RemovePhoto">Удалить фото</system:String>
+    <system:String x:Key="Save">_Сохранить</system:String>
+    <system:String x:Key="Settings">Настройки</system:String>
+    <system:String x:Key="Theme">Тема</system:String>
+    <system:String x:Key="Title">Каталог продуктов</system:String>
+    <system:String x:Key="Year">Год</system:String>
+</ResourceDictionary>

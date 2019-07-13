@@ -1,0 +1,78 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="LabelStyle"
+           TargetType="Label">
+        <Setter Property="Margin"
+                Value="40,30,40,0" />
+    </Style>
+    <Style x:Key="TextBoxStyle"
+           TargetType="TextBox">
+        <Setter Property="Margin"
+                Value="45,0,40,0" />
+        <Setter Property="Background"
+                Value="#FFFFFF" />
+    </Style>
+    <Style x:Key="ComboBoxStyle"
+           TargetType="ComboBox">
+        <Setter Property="Margin"
+                Value="45,0,40,0" />
+    </Style>
+    <Style x:Key="IntroComboBoxStyle"
+           TargetType="ComboBox">
+        <Setter Property="Margin"
+                Value="25,10,0,0" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="Width"
+                Value="150" />
+    </Style>
+    <Style x:Key="TabHeaderStyle"
+           TargetType="TabItem">
+        <Setter Property="Width"
+                Value="110" />
+    </Style>
+    <Style x:Key="TabContentComboStyle"
+           TargetType="ComboBox">
+        <Setter Property="Width"
+                Value="140" />
+        <Setter Property="Height"
+                Value="28" />
+        <Setter Property="Margin"
+                Value="0,0,0,20" />
+    </Style>
+    <Style x:Key="SettingsButtonStyle"
+           TargetType="Button">
+        <Setter Property="Width"
+                Value="100" />
+        <Setter Property="Height"
+                Value="27" />
+        <Setter Property="Margin"
+                Value="10,0,30,0" />
+    </Style>
+    <Style x:Key="WindowStyle"
+           TargetType="Window">
+        <Setter Property="Background"
+                Value="#F3F3F3" />
+    </Style>
+    <Style x:Key="TabControlStyle"
+           TargetType="TabControl">
+        <Setter Property="Background"
+                Value="#F3F3F3" />
+    </Style>
+    <Style x:Key="ListBoxStyle"
+           TargetType="ListBox">
+        <Setter Property="Background"
+                Value="#F3F3F3" />
+    </Style>
+    <Style x:Key="DetailsFormButton"
+           TargetType="Button">
+        <Setter Property="Width"
+                Value="120" />
+    </Style>
+    <Style x:Key="DetailsFormStyle"
+           BasedOn="{StaticResource WindowStyle}"
+           TargetType="Window">
+        <Setter Property="Background"
+                Value="LightGray" />
+    </Style>
+</ResourceDictionary>
