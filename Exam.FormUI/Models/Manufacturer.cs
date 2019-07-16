@@ -4,13 +4,14 @@ using System;
 namespace Exam.FormUI.Models
 {
     /// <summary>
-    /// Модель производителя.
+    /// Manufacturer model.
     /// </summary>
     [Serializable]
     public class Manufacturer
     {
         /// <summary>
-        /// Индекс производителя, согласно коллекции (<see cref="ProductsManufactureries"/>).
+        /// Producer index, according to the
+        /// <see cref="ProductsManufactureries"/> collection.
         /// </summary>
         public int Current { get; set; }
     }

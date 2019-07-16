@@ -4,7 +4,7 @@ using System.Windows.Input;
 namespace Exam.FormUI.ViewModels
 {
     /// <summary>
-    /// Класс необходимый для описания собственных команд.
+    /// The class required to describe your own commands.
     /// </summary>
     public class RelayCommand : ICommand
     {

@@ -3,7 +3,7 @@
 namespace Exam.FormUI.Models.ObservableCollections
 {
     /// <summary>
-    /// Коллекция всех доступных производителей.
+    /// A collection of all available manufacturers.
     /// </summary>
     public class ProductsManufactureries : ObservableCollection<string>
     {

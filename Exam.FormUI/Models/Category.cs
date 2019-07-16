@@ -4,13 +4,14 @@ using System;
 namespace Exam.FormUI.Models
 {
     /// <summary>
-    /// Модель категории.
+    /// Category model.
     /// </summary>
     [Serializable]
     public class Category
     {
         /// <summary>
-        /// Индекс категории, согласно коллекции (<see cref="ProductsCategories"/>).
+        /// Index category, according to the collection
+        /// (<see cref="ProductsCategories"/>).
         /// </summary>
         public int Current { get; set; }
     }

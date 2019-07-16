@@ -3,18 +3,18 @@
 namespace Exam.FormUI.Models
 {
     /// <summary>
-    /// Модель настроек.
+    /// Settings model.
     /// </summary>
     [Serializable]
     public class Settings
     {
         /// <summary>
-        /// Хранит текущею локализацию.
+        /// Stores the current localization.
         /// </summary>
         public string Localization { get; set; }
 
         /// <summary>
-        /// Хранит текущею тему.
+        /// Stores the current theme.
         /// </summary>
         public string Theme { get; set; }
     }

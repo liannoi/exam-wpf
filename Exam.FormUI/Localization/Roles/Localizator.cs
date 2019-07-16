@@ -4,10 +4,19 @@ using System.Windows;
 
 namespace Exam.FormUI.Localization.Roles
 {
+    /// <summary>
+    /// Provides a convenient localization change in the application.
+    /// </summary>
     public class Localizator
     {
+        /// <summary>
+        /// Stores the selected localization.
+        /// </summary>
         private ILocalizable localizable;
 
+        /// <summary>
+        /// Sets English localization.
+        /// </summary>
         public void English()
         {
             Uri uri = new Uri($"Localization/Dictionaries/Dictionary.xaml", UriKind.Relative);
@@ -17,6 +26,9 @@ namespace Exam.FormUI.Localization.Roles
             localizable = new EnglishLocalization();
         }
 
+        /// <summary>
+        /// Sets Russian localization.
+        /// </summary>
         public void Russian()
         {
             Uri uri = new Uri($"Localization/Dictionaries/Dictionary.ru.xaml", UriKind.Relative);
@@ -26,11 +38,19 @@ namespace Exam.FormUI.Localization.Roles
             localizable = new RussianLocalization();
         }
 
+        /// <summary>
+        /// Returns product main text of the deletion message.
+        /// </summary>
+        /// <returns>Message</returns>
         public string RemoveProductText()
         {
             return localizable.Messages[(int)MessageCategory.RemoveProductText];
         }
 
+        /// <summary>
+        /// Returns product сaption of the deletion message.
+        /// </summary>
+        /// <returns>Message</returns>
         public string RemoveProductCaption()
         {
             return localizable.Messages[(int)MessageCategory.RemoveProductCaption];

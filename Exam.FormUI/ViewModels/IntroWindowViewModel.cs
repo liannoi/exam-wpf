@@ -13,32 +13,33 @@ using System.Windows.Input;
 namespace Exam.FormUI.ViewModels
 {
     /// <summary>
-    /// Модель представления для окна <see cref="IntroWindow"/>.
+    /// The view model for the window <see cref="IntroWindow"/>.
     /// </summary>
     public class IntroWindowViewModel : INotifyPropertyChanged
     {
         #region Fields
 
         /// <summary>
-        /// Объект класса ответственного за операции с файлами.
+        /// The class object responsible for file operations.
         /// </summary>
         private FileOperation fileOperation;
 
         /// <summary>
-        /// Значение <see cref="ComboBox"/>. Необходимо для составления
-        /// корректного лог файла.
+        /// <see cref="ComboBox"/> value. Required to compile the correct log
+        /// file.
         /// </summary>
         private int selectedLocalization;
 
         /// <summary>
-        /// Значение <see cref="ComboBox"/>. Необходимо для составления
-        /// корректного лог файла.
+        /// <see cref="ComboBox"/> value. Required to compile the correct log
+        /// file.
         /// </summary>
         private int selectedTheme;
 
         /// <summary>
-        /// Объект класса ответственного за локализацию приложения. Данная
-        /// форма может влиять на локализацию всего приложения.
+        /// The class object responsible for the localization of the
+        /// application. This form can affect the localization of the entire
+        /// application.
         /// </summary>
         private readonly Localizator localizator;
 
@@ -61,8 +62,8 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Подготавливает данные и отправляет <see cref="fileOperation"/> для
-        /// сохранения их в файл.
+        /// Prepares data and sends <see cref="fileOperation"/> to save it to a
+        /// file.
         /// </summary>
         private void SaveSettings()
         {
@@ -84,18 +85,18 @@ namespace Exam.FormUI.ViewModels
         #region Properties
 
         /// <summary>
-        /// Коллекция всех доступных локализаций.
+        /// A collection of all available localizations.
         /// </summary>
         public Localizations Localizations { get; set; }
 
         /// <summary>
-        /// Коллекция всех доступных тем.
+        /// A collection of all available themes.
         /// </summary>
         public Models.ObservableCollections.Themes Themes { get; set; }
 
         /// <summary>
-        /// Значение <see cref="ComboBox"/>. Необходимо для составления
-        /// корректного лог файла.
+        /// <see cref="ComboBox"/> value. Required to compile the correct log
+        /// file.
         /// </summary>
         public int SelectedLocalization
         {
@@ -109,8 +110,8 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Значение <see cref="ComboBox"/>. Необходимо для составления
-        /// корректного лог файла.
+        /// <see cref="ComboBox"/> value. Required to compile the correct log
+        /// file.
         /// </summary>
         public int SelectedTheme
         {
@@ -128,7 +129,7 @@ namespace Exam.FormUI.ViewModels
         #region Methods
 
         /// <summary>
-        /// Конструктор модели представления окна <see cref="IntroWindow"/>.
+        /// Constructor of the <see cref="IntroWindow"/> window view model.
         /// </summary>
         public IntroWindowViewModel()
         {
@@ -142,8 +143,8 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Описывает действия которые необходимо выполнить, в случае если файл
-        /// с настройками уже создан.
+        /// Describes the actions that need to be performed in case the
+        /// settings file has already been created.
         /// </summary>
         private void FileCreated()
         {
@@ -152,7 +153,7 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Описывает действия открытия основной формы.
+        /// Describes the opening actions of the main form.
         /// </summary>
         private void OpenDashboard()
         {
@@ -164,6 +165,10 @@ namespace Exam.FormUI.ViewModels
 
         #region INotifyPropertyChanged Members
 
+        /// <summary>
+        /// Executed when the property changes.
+        /// </summary>
+        /// <param name="str">Property name - transmit optional.</param>
         public void OnPropertyChanged([CallerMemberName]string str = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(str));

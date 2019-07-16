@@ -15,25 +15,26 @@ using System.Windows.Input;
 namespace Exam.FormUI.ViewModels
 {
     /// <summary>
-    /// Модель представления для основного окна <see cref="DashboardWindow"/>.
+    /// View model for the main window (<see cref="DashboardWindow"/>).
     /// </summary>
     public class DashboardWindowViewModel : INotifyPropertyChanged
     {
         #region Fields
 
         /// <summary>
-        /// Текущий продукт.
+        /// Current product.
         /// </summary>
         private Product product;
 
         /// <summary>
-        /// Объект класса ответственного за операции с файлами.
+        /// The class object responsible for file operations.
         /// </summary>
         private readonly FileOperation fileOperation;
 
         /// <summary>
-        /// Объект класса ответственного за локализацию приложения. Данная
-        /// форма может влиять на локализацию всего приложения.
+        /// The class object responsible for the localization of the
+        /// application. This form can affect the localization of the entire
+        /// application.
         /// </summary>
         private readonly Localizator localizator;
 
@@ -134,7 +135,7 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Добавляет новый продукт.
+        /// Adds a new product.
         /// </summary>
         private void Add()
         {
@@ -151,7 +152,7 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Сохранение коллекции (<see cref="Products"/>) в бинарный файл.
+        /// Save the collection (<see cref="Products"/>) to a binary file.
         /// </summary>
         private void Save()
         {
@@ -159,9 +160,9 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Выводит окно с надстройками приложения, после закрытия которого,
-        /// приложения еще раз локализуется и устанавливает тему. Это сделано
-        /// для обеспечения динамического приложения.
+        /// Displays a window with the add-ins of the application, after which
+        /// it is closed, the application is localized again and installs the
+        /// theme. This is done to provide a dynamic application.
         /// </summary>
         private void DisplaySettings()
         {
@@ -171,7 +172,7 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Выводит окно с фотографиями текущего продукта.
+        /// Displays a window with photos of the current product.
         /// </summary>
         private void ShowPhotos()
         {
@@ -186,12 +187,12 @@ namespace Exam.FormUI.ViewModels
             };
             window.ShowDialog();
 
-            // Обновление коллекции.
+            // Update collection.
             Products = fileOperation.Products;
         }
 
         /// <summary>
-        /// Удаляет текущий выбранный продукт, после вопроса.
+        /// Removes the currently selected product, after the question.
         /// </summary>
         private void RemoveCurrent()
         {
@@ -202,7 +203,7 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Метод определяющий доступность команды.
+        /// A method that determines the availability of a command.
         /// </summary>
         private bool IsProductsZero()
         {
@@ -214,22 +215,22 @@ namespace Exam.FormUI.ViewModels
         #region Properties
 
         /// <summary>
-        /// Коллекция продуктов.
+        /// A collection of products.
         /// </summary>
         public ObservableCollection<Product> Products { get; set; }
 
         /// <summary>
-        /// Коллекция всех доступных категорий.
+        /// A collection of all available categories.
         /// </summary>
         public ProductsCategories Categories { get; set; }
 
         /// <summary>
-        /// Коллекция всех доступных производителей.
+        /// A collection of all available manufacturers.
         /// </summary>
         public ProductsManufactureries Manufactureries { get; set; }
 
         /// <summary>
-        /// Текущий продукт.
+        /// Current product.
         /// </summary>
         public Product Product
         {
@@ -247,44 +248,46 @@ namespace Exam.FormUI.ViewModels
         #region Methods
 
         /// <summary>
-        /// Конструктор модели представления основного окна <see cref="DashboardWindow"/>.
+        /// Constructor of the main window (<see cref="DashboardWindow"/>) view
+        /// model.
         /// </summary>
         public DashboardWindowViewModel()
         {
-            // Установка относительных путей к необходимым файлам.
+            // Set relative paths to the required files.
             fileOperation = new FileOperation(Products)
             {
                 CollectionFileName = "Data/products.dat",
                 SettingsFileName = "Data/settings.dat"
             };
 
-            // Попытка получить с файла коллекцию продуктов.
+            // Attempt to get from the file collection of products.
             Products = fileOperation.TryOpen();
 
-            // Если попытка оказалось неудачной, необходимо создать один
-            // "стандартный" продукт, чтобы избежать необработанных исключений.
+            // If the attempt was unsuccessful, your need to create one
+            // "standard" product to avoid unhandled exceptions.
             if (Products.Count == 0)
             {
                 DefaultProduct(1);
             }
 
-            // В качестве текущего продукта, выбирается первый.
+            // As the current product, the first is selected.
             Product = Products.FirstOrDefault();
 
-            // Выделение памяти на коллекции.
+            // Memory allocation for collections.
             Categories = new ProductsCategories();
             Manufactureries = new ProductsManufactureries();
 
-            // Выделение памяти на объект, необходимого для локализации.
+            // Memory allocation on the object necessary for localization.
             localizator = new Localizator();
 
-            // Окно применяет необходимые для себя стили и локализацию.
+            // The window applies the necessary styles and localization.
             Apply();
         }
 
         /// <summary>
-        /// Вызывает два метода (<see cref="ApplyTheme"/> и <see cref="Localize"/>),
-        /// которые устанавливают для окна необходимые свойства.
+        /// Calls two methods
+        /// (<see cref="ApplyTheme"/> и <see cref="Localize"/>), that set the
+        /// necessary properties for the window.
         /// </summary>
         private void Apply()
         {
@@ -293,7 +296,7 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Применяет тему к окну.
+        /// Applies a theme to the window.
         /// </summary>
         private void ApplyTheme()
         {
@@ -302,7 +305,7 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Локализирует окно.
+        /// Localizes the window.
         /// </summary>
         private void Localize()
         {
@@ -323,10 +326,10 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Создает и добавляет обычный продукт. Обычным продуктом, называется
-        /// продукт, которые является шаблоном для заполнения пользователем.
+        /// Creates and adds a regular product. A common product is a product,
+        /// which is a template to be filled by the user.
         /// </summary>
-        /// <param name="id">Код товара</param>
+        /// <param name="id">Product id</param>
         private void DefaultProduct(int id)
         {
             Products.Add(new Product
@@ -348,7 +351,11 @@ namespace Exam.FormUI.ViewModels
         #endregion
 
         #region INotifyPropertyChanged Members
-
+        
+        /// <summary>
+        /// Executed when the property changes.
+        /// </summary>
+        /// <param name="str">Property name - transmit optional.</param>
         public void OnPropertyChanged([CallerMemberName]string str = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(str));

@@ -2,7 +2,9 @@
 
 namespace Exam.FormUI.Models.ObservableCollections
 {
-    // Коллекция всех доступных тем.
+    /// <summary>
+    /// A collection of all available themes.
+    /// </summary>
     public class Themes : ObservableCollection<string>
     {
         public Themes()

@@ -10,26 +10,26 @@ using System.Windows.Input;
 namespace Exam.FormUI.ViewModels
 {
     /// <summary>
-    /// Модель представления для окна <see cref="SettingsWindow"/>.
+    /// The view model for the window <see cref="SettingsWindow"/>.
     /// </summary>
     public class SettingsWindowViewModel : INotifyPropertyChanged
     {
         #region Fields
 
         /// <summary>
-        /// Объект класса ответственного за операции с файлами.
+        /// The class object responsible for file operations.
         /// </summary>
         private readonly FileOperation fileOperation;
 
         /// <summary>
-        /// Значение <see cref="ComboBox"/>. Необходимо для составления
-        /// корректного лог файла.
+        /// <see cref="ComboBox"/> value. Required to compile the correct log
+        /// file.
         /// </summary>
         private int selectedLocalization;
 
         /// <summary>
-        /// Значение <see cref="ComboBox"/>. Необходимо для составления
-        /// корректного лог файла.
+        /// <see cref="ComboBox"/> value. Required to compile the correct log
+        /// file.
         /// </summary>
         private int selectedTheme;
 
@@ -65,7 +65,7 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Сохраняет текущие настройки в лог файл и закрывает окно.
+        /// Saves the current settings to a log file and closes the window.
         /// </summary>
         private void Save()
         {
@@ -80,18 +80,18 @@ namespace Exam.FormUI.ViewModels
         #region Properties
 
         /// <summary>
-        /// Коллекция всех доступных локализаций.
+        /// A collection of all available localizations.
         /// </summary>
         public Localizations Localizations { get; set; }
 
         /// <summary>
-        /// Коллекция всех доступных тем.
+        /// A collection of all available themes.
         /// </summary>
         public Models.ObservableCollections.Themes Themes { get; set; }
 
         /// <summary>
-        /// Значение <see cref="ComboBox"/>. Необходимо для составления
-        /// корректного лог файла.
+        /// <see cref="ComboBox"/> value. Required to compile the correct log
+        /// file.
         /// </summary>
         public int SelectedLocalization
         {
@@ -105,8 +105,8 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Значение <see cref="ComboBox"/>. Необходимо для составления
-        /// корректного лог файла.
+        /// <see cref="ComboBox"/> value. Required to compile the correct log
+        /// file.
         /// </summary>
         public int SelectedTheme
         {
@@ -122,32 +122,38 @@ namespace Exam.FormUI.ViewModels
         #endregion
 
         /// <summary>
-        /// Конструктор модели представления окна <see cref="SettingsWindow"/>.
+        /// Constructor of the <see cref="SettingsWindow"/> window view model.
         /// </summary>
         public SettingsWindowViewModel()
         {
-            // Выделение памяти на коллекции.
+            // Memory allocation for collections.
             Localizations = new Localizations();
             Themes = new Models.ObservableCollections.Themes();
 
-            // Выделение памяти на объект для работы с файлами.
+            // Memory allocation on object for work with files.
             fileOperation = new FileOperation
             {
                 SettingsFileName = "Data/settings.dat"
             };
 
-            // Загрузка лога. Лог — информация о текущей теме и локализации.
+            // Loading log. Log - information about the current topic and
+            // localization.
             fileOperation.Load();
 
-            // Выбирает те значения, которые выбрал пользователь в прошлый раз.
-            // Если запуск приложения в первый раз, или отсутствует файл
-            // settings.dat, значение по умолчанию ноль (значимый тип данных).
+            // Selects the values that the user selected last time. If the
+            // application is launched for the first time, or the settings.dat
+            // file is missing, the default value is zero
+            // (significant data type).
             SelectedLocalization = Localizations.IndexOf(fileOperation.Settings.Localization);
             SelectedTheme = Themes.IndexOf(fileOperation.Settings.Theme);
         }
 
         #region INotifyPropertyChanged Members
-
+        
+        /// <summary>
+        /// Executed when the property changes.
+        /// </summary>
+        /// <param name="str">Property name - transmit optional.</param>
         public void OnPropertyChanged([CallerMemberName]string str = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(str));

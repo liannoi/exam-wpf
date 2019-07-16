@@ -3,16 +3,15 @@
 namespace Exam.FormUI.Localization.Models
 {
     /// <summary>
-    /// Модель русской локализации. Реализует интерфейс
-    /// <see cref="ILocalizable"/>, для реализации шаблона проектирования
-    /// Cтратегия.
+    /// Russian localization model. Implements the <see cref="ILocalizable"/>
+    /// interface to implement the design pattern Strategy.
     /// </summary>
     public class RussianLocalization : ILocalizable
     {
         /// <summary>
-        /// Хранит список сообщений на русском языке. Параллельно введется
-        /// перечисление <see cref="MessageCategory"/> для более удобного
-        /// получения доступа к сообщению.
+        /// Stores the list of messages in Russian. In parallel, a
+        /// <see cref="MessageCategory"/> enumeration will be introduced to
+        /// more easily access the message.
         /// </summary>
         List<string> ILocalizable.Messages
         {

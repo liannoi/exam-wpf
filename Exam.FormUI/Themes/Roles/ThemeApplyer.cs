@@ -4,14 +4,14 @@ using System.Windows;
 namespace Exam.FormUI.Themes.Roles
 {
     /// <summary>
-    /// Роль обеспечивающая изменение темы приложения.
+    /// The role of changing the theme of the application.
     /// </summary>
     public static class ThemeApplyer
     {
         /// <summary>
-        /// Применяет тему для приложения.
+        /// Applies a theme for the application.
         /// </summary>
-        /// <param name="shortName">Краткое именование стиля (Dark, например)</param>
+        /// <param name="shortName">Short style name (Dark, for example)</param>
         public static void Apply(string shortName)
         {
             Uri uri = new Uri($"Themes/Dictionaries/{shortName}Theme.xaml", UriKind.Relative);

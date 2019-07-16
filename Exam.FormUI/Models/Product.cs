@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 namespace Exam.FormUI.Models
 {
     /// <summary>
-    /// Модель продукта.
+    /// Product model.
     /// </summary>
     [Serializable]
     public class Product : INotifyPropertyChanged
@@ -127,11 +127,18 @@ namespace Exam.FormUI.Models
 
         #region INotifyPropertyChanged Members
 
+        /// <summary>
+        /// Executed when the property changes.
+        /// </summary>
+        /// <param name="str">Property name - transmit optional.</param>
         public void OnPropertyChanged([CallerMemberName]string str = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(str));
         }
 
+        /// <summary>
+        /// Not serialized with binary serialization.
+        /// </summary>
         [field: NonSerialized()]
         public event PropertyChangedEventHandler PropertyChanged;
 

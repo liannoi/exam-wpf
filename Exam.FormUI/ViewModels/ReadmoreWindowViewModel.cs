@@ -11,29 +11,29 @@ using System.Windows.Input;
 namespace Exam.FormUI.ViewModels
 {
     /// <summary>
-    /// Модель представления для окна <see cref="ReadmoreWindow"/>.
+    /// The view model for the window <see cref="ReadmoreWindow"/>.
     /// </summary>
     public class ReadmoreWindowViewModel : INotifyPropertyChanged
     {
         #region Fields
 
         /// <summary>
-        /// Объект класса ответственного за операции с файлами.
+        /// The class object responsible for file operations.
         /// </summary>
         private readonly FileOperation fileOperation;
 
         /// <summary>
-        /// Текущая фотография.
+        /// Current photo.
         /// </summary>
         private Photo photo;
 
         /// <summary>
-        /// Индекс текущего продукта в коллекции.
+        /// The index of the current product in the collection.
         /// </summary>
         private int index;
 
         /// <summary>
-        /// Коллекция всех продуктов.
+        /// A collection of all products.
         /// </summary>
         private ObservableCollection<Product> products;
 
@@ -95,8 +95,8 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Добавляет фотографию к коллекции (<see cref="Photos"/>) фотографий
-        /// продукта.
+        /// Adds a photo to the collection (<see cref="Photos"/>) of product
+        /// photos.
         /// </summary>
         private void Add()
         {
@@ -109,15 +109,15 @@ namespace Exam.FormUI.ViewModels
             Photos.Add(fileOperation.NewPhoto());
             Photo = Photos.FirstOrDefault();
 
-            // Сохранение фото.
+            // Save the photo.
             products[index].Photos = Photos;
             fileOperation.Products = products;
             fileOperation.Serialize();
         }
 
         /// <summary>
-        /// Удаляет текущею фотографию с коллекции (<see cref="Photos"/>)
-        /// фотографий у продукта.
+        /// Removes the current photo from the photo collection
+        /// (<see cref="Photos"/>) from the product.
         /// </summary>
         private void Remove()
         {
@@ -126,10 +126,10 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Метод определяющий доступ к команде.
+        /// Method defines access to the command.
         /// </summary>
         /// <returns>
-        /// Является ли текущая фотография первой из всей коллекции (<see cref="Photos"/>) фотографий у продукта.
+        /// Whether the current photo is the first from the entire collection (<see cref="Photos"/>) of the photos of the product.
         /// </returns>
         private bool IsFirst()
         {
@@ -141,10 +141,10 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Метод определяющий доступ к команде.
+        /// Method defines access to the command.
         /// </summary>
         /// <returns>
-        /// Является ли текущая фотография последней из всей коллекции (<see cref="Photos"/>) фотографий у продукта.
+        /// Is the current photo the latest from the entire collection (<see cref="Photos"/>) of the photos of the product.
         /// </returns>
         private bool IsLast()
         {
@@ -156,7 +156,7 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Метод определяющий доступ к команде.
+        /// Method defines access to the command.
         /// </summary>
         private bool IsLastPosition()
         {
@@ -168,12 +168,12 @@ namespace Exam.FormUI.ViewModels
         #region Properties
 
         /// <summary>
-        /// Коллекция всех фотографий текущего продукта.
+        /// A collection of all photos of the current product.
         /// </summary>
         public ProductsPhotos Photos { get; set; }
 
         /// <summary>
-        /// Текущая фотография.
+        /// Current photo.
         /// </summary>
         public Photo Photo
         {
@@ -187,17 +187,19 @@ namespace Exam.FormUI.ViewModels
         }
 
         /// <summary>
-        /// Код товара. В него записываться значение <see cref="Product.Id"/>.
+        /// Product code. Write the value <see cref="Product.Id"/>.
         /// </summary>
         public int Id { get; set; }
 
         #endregion
 
         /// <summary>
-        /// Конструктор модели представления окна <see cref="ReadmoreWindow"/>.
+        /// Constructor of the <see cref="ReadmoreWindow"/> window view model.
         /// </summary>
-        /// <param name="photos">Коллекция фотографий текущего продукта.</param>
-        public ReadmoreWindowViewModel(ObservableCollection<Product> products, int index, ProductsPhotos photos)
+        /// <param name="photos">A collection of photos of the current product.</param>
+        public ReadmoreWindowViewModel(ObservableCollection<Product> products,
+            int index,
+            ProductsPhotos photos)
         {
             Photos = photos;
             if (Photos == null)
@@ -216,6 +218,10 @@ namespace Exam.FormUI.ViewModels
 
         #region INotifyPropertyChanged Members
 
+        /// <summary>
+        /// Executed when the property changes.
+        /// </summary>
+        /// <param name="str">Property name - transmit optional.</param>
         public void OnPropertyChanged([CallerMemberName]string str = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(str));

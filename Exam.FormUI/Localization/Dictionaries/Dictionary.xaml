@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <!--English dictionary-->
     <system:String x:Key="Add">_Add</system:String>
     <system:String x:Key="AddPhoto">Add photo</system:String>
     <system:String x:Key="Back">Back</system:String>

@@ -3,7 +3,7 @@
 namespace Exam.FormUI.Models.ObservableCollections
 {
     /// <summary>
-    /// Коллекция всех доступных локализаций.
+    /// A collection of all available localizations.
     /// </summary>
     public class Localizations : ObservableCollection<string>
     {

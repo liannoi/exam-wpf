@@ -3,19 +3,19 @@
 namespace Exam.FormUI.Localization.Models
 {
     /// <summary>
-    /// Перечисление, необходимое для упрощения получения доступа к разным
-    /// сообщением, на разных языках.
+    /// A listing required to simplify access to different messages in
+    /// different languages.
     /// </summary>
     public enum MessageCategory
     {
         /// <summary>
-        /// Сообщение об удаление продукта, непосредственно "внутренний" текст
-        /// <see cref="MessageBox"/>.
+        /// Message about the removal of the product, directly the "internal"
+        /// text of <see cref="MessageBox"/>.
         /// </summary>
         RemoveProductText,
 
         /// <summary>
-        /// Заголовок сообщения об удаление продукта (<see cref="RemoveProductText"/>).
+        /// (<see cref="RemoveProductText"/>) product removal message header.
         /// </summary>
         RemoveProductCaption
     }

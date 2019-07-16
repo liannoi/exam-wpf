@@ -8,30 +8,25 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace Exam.FormUI.Roles
 {
     /// <summary>
-    /// Роль для обеспечения работы с файловой системой.
+    /// The role to ensure the work with the file system.
     /// </summary>
     public class FileOperation
     {
         #region Fields
 
-        /// <summary>
-        /// Файловый поток.
-        /// </summary>
         private FileStream fileStream;
 
         /// <summary>
-        /// Объект ответственный за бинарное хранение и получение данных.
+        /// The object is responsible for the binary storage and retrieval of
+        /// data.
         /// </summary>
         private readonly BinaryFormatter binaryFormatter;
 
-        /// <summary>
-        /// Файловый диалог.
-        /// </summary>
         private OpenFileDialog openFileDialog;
 
         /// <summary>
-        /// Путь по которому необходимо скопировать файл, полученный в
-        /// результате работы файлового диалога (<see cref="openFileDialog"/>).
+        /// Path where it is necessary to copy the file obtained as a result of
+        /// the file dialog (<see cref="openFileDialog"/>).
         /// </summary>
         private string destination;
 
@@ -40,22 +35,23 @@ namespace Exam.FormUI.Roles
         #region Properties
 
         /// <summary>
-        /// Путь к коллекции продуктов в сериализованном формате.
+        /// Path to the collection of products in a serialized format.
         /// </summary>
         public string CollectionFileName { get; set; }
 
         /// <summary>
-        /// Путь к файлу с настройками в сериализованном формате.
+        /// The path to the file with the settings in the serialized format.
         /// </summary>
         public string SettingsFileName { get; set; }
 
         /// <summary>
-        /// Набор свойств из которого состоит лог файл (<see cref="SettingsFileName"/>).
+        /// The property set of which the log file
+        /// (<see cref="SettingsFileName"/>) consists.
         /// </summary>
         public Settings Settings { get; set; }
 
         /// <summary>
-        /// Коллекция продуктов.
+        /// A collection of products.
         /// </summary>
         public ObservableCollection<Product> Products { get; set; }
 
@@ -65,7 +61,7 @@ namespace Exam.FormUI.Roles
 
         public FileOperation(ObservableCollection<Product> products)
         {
-            this.Products = products;
+            Products = products;
             binaryFormatter = new BinaryFormatter();
         }
 
@@ -75,7 +71,8 @@ namespace Exam.FormUI.Roles
         }
 
         /// <summary>
-        /// Подготовка файлового диалога (<see cref="openFileDialog"/>) к открытию фотографии.
+        /// Preparing a file dialog (<see cref="openFileDialog"/>) for opening
+        /// a photo.
         /// </summary>
         public void InitializeDialog()
         {
@@ -87,7 +84,8 @@ namespace Exam.FormUI.Roles
         }
 
         /// <summary>
-        /// Сериализация коллекции с продуктами (<see cref="Products"/>).
+        /// Serialization of the collection with products
+        /// (<see cref="Products"/>).
         /// </summary>
         public void Serialize()
         {
@@ -98,9 +96,10 @@ namespace Exam.FormUI.Roles
         }
 
         /// <summary>
-        /// Десериализация коллекции с продуктами из файлового потока (<see cref="fileStream"/>).
+        /// Deserialization of the collection with products from the file
+        /// stream (<see cref="fileStream"/>).
         /// </summary>
-        /// <returns>Коллекция продуктов</returns>
+        /// <returns>Product collection</returns>
         public ObservableCollection<Product> Deserialize()
         {
             using (fileStream = new FileStream(CollectionFileName, FileMode.Open, FileAccess.Read))
@@ -111,11 +110,11 @@ namespace Exam.FormUI.Roles
         }
 
         /// <summary>
-        /// Попытка открыть файл с сериализированной коллекцией продуктов.
-        /// Следует использовать если вы не уверены, создан ли бинарный файл по
-        /// этому (<see cref="CollectionFileName"/>) пути.
+        /// Attempting to open a file with a serialized collection of products.
+        /// It should be used if your are not sure whether a binary file is
+        /// created on this (<see cref="CollectionFileName"/>) path.
         /// </summary>
-        /// <returns>Коллекция продуктов</returns>
+        /// <returns>Product collection</returns>
         public ObservableCollection<Product> TryOpen()
         {
             try
@@ -134,8 +133,8 @@ namespace Exam.FormUI.Roles
         }
 
         /// <summary>
-        /// Метод оповещающий о статусе завершение файлового диалога
-        /// (<see cref="openFileDialog"/>).
+        /// The method of notifying about the status of completion of the file
+        /// dialog (<see cref="openFileDialog"/>).
         /// </summary>
         public bool? IsCorrectDialog()
         {
@@ -143,9 +142,9 @@ namespace Exam.FormUI.Roles
         }
 
         /// <summary>
-        /// Создание папки.
+        /// Creating a folder.
         /// </summary>
-        /// <param name="name">Название директории</param>
+        /// <param name="name">Directory name</param>
         public void CreateDirectory(string name)
         {
             if (!Directory.Exists(name))
@@ -155,9 +154,8 @@ namespace Exam.FormUI.Roles
         }
 
         /// <summary>
-        /// Копирование файла. Когда мы получаем файл от пользователя, нам
-        /// необходимо поместить его в свою локальную директорию, для
-        /// исключения исключительных ситуаций.
+        /// When we receive a file from the user, we need to place it in our
+        /// local directory, to exclude exceptions.
         /// </summary>
         public void CopyFile()
         {
@@ -166,7 +164,7 @@ namespace Exam.FormUI.Roles
         }
 
         /// <summary>
-        /// Возвращает новое фото для продукта.
+        /// Returns a new photo for the product.
         /// </summary>
         public Photo NewPhoto()
         {
@@ -177,7 +175,7 @@ namespace Exam.FormUI.Roles
         }
 
         /// <summary>
-        /// Сохранение настроек (<see cref="Settings"/>).
+        /// Saving settings (<see cref="Settings"/>).
         /// </summary>
         public void Save()
         {
@@ -196,7 +194,7 @@ namespace Exam.FormUI.Roles
         }
 
         /// <summary>
-        /// Загрузка настроек (<see cref="Settings"/>).
+        /// Loading settings (<see cref="Settings"/>).
         /// </summary>
         public void Load()
         {
