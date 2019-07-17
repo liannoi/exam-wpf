@@ -13,7 +13,7 @@
         ResizeMode="CanResizeWithGrip"
         Style="{DynamicResource WindowStyle}"
         MinHeight="605"
-        MinWidth="412">
+        MinWidth="1100">
     <Window.DataContext>
         <model:DashboardWindowViewModel />
     </Window.DataContext>
