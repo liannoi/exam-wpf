@@ -28,8 +28,6 @@ namespace Exam.FormUI.Roles
     {
         #region Fields
 
-        private FileStream fileStream;
-
         /// <summary>
         /// The object is responsible for the binary storage and retrieval of
         /// data.
@@ -103,7 +101,7 @@ namespace Exam.FormUI.Roles
         /// </summary>
         public void Serialize()
         {
-            using (fileStream = new FileStream(CollectionFileName, FileMode.Create, FileAccess.Write))
+            using (FileStream fileStream = new FileStream(CollectionFileName, FileMode.Create, FileAccess.Write))
             {
                 binaryFormatter.Serialize(fileStream, Products);
             }
@@ -116,7 +114,7 @@ namespace Exam.FormUI.Roles
         /// <returns>Product collection</returns>
         public ObservableCollection<Product> Deserialize()
         {
-            using (fileStream = new FileStream(CollectionFileName, FileMode.Open, FileAccess.Read))
+            using (FileStream fileStream = new FileStream(CollectionFileName, FileMode.Open, FileAccess.Read))
             {
                 Products = (ObservableCollection<Product>)binaryFormatter.Deserialize(fileStream);
                 return Products;
@@ -159,7 +157,7 @@ namespace Exam.FormUI.Roles
         /// Creating a folder.
         /// </summary>
         /// <param name="name">Directory name</param>
-        public void CreateDirectory(string name)
+        public static void CreateDirectory(string name)
         {
             if (!Directory.Exists(name))
             {
@@ -195,7 +193,7 @@ namespace Exam.FormUI.Roles
         {
             try
             {
-                using (fileStream = new FileStream(SettingsFileName, FileMode.Create, FileAccess.Write))
+                using (FileStream fileStream = new FileStream(SettingsFileName, FileMode.Create, FileAccess.Write))
                 {
                     binaryFormatter.Serialize(fileStream, Settings);
                 }
@@ -212,7 +210,7 @@ namespace Exam.FormUI.Roles
         /// </summary>
         public void Load()
         {
-            using (fileStream = new FileStream(SettingsFileName, FileMode.Open, FileAccess.Read))
+            using (FileStream fileStream = new FileStream(SettingsFileName, FileMode.Open, FileAccess.Read))
             {
                 Settings = (Settings)binaryFormatter.Deserialize(fileStream);
             }

@@ -44,12 +44,12 @@ namespace Exam.FormUI.ViewModels
         /// <summary>
         /// The index of the current product in the collection.
         /// </summary>
-        private int index;
+        private readonly int index;
 
         /// <summary>
         /// A collection of all products.
         /// </summary>
-        private ObservableCollection<Product> products;
+        private readonly ObservableCollection<Product> products;
 
         #endregion
 
@@ -118,7 +118,7 @@ namespace Exam.FormUI.ViewModels
             {
                 return;
             }
-            fileOperation.CreateDirectory("Images");
+            FileOperation.CreateDirectory("Images");
             fileOperation.CopyFile();
             Photos.Add(fileOperation.NewPhoto());
             Photo = Photos.FirstOrDefault();

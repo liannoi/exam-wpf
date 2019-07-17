@@ -336,6 +336,10 @@ namespace Exam.FormUI.ViewModels
                         localizator.Russian();
                         break;
                     }
+                default:
+                    {
+                        throw new NotImplementedException();
+                    }
             }
         }
 
