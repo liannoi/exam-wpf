@@ -1,0 +1,2 @@
+# exam-wpf
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2e6a32d5bea14237b0cdb1e6847e0fe6)](https://app.codacy.com/app/liannoi/exam-wpf?utm_source=github.com&utm_medium=referral&utm_content=liannoi/exam-wpf&utm_campaign=Badge_Grade_Dashboard)
