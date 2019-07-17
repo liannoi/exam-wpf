@@ -155,7 +155,7 @@ namespace Exam.FormUI.ViewModels
         /// Describes the actions that need to be performed in case the
         /// settings file has already been created.
         /// </summary>
-        private void FileCreated()
+        private static void FileCreated()
         {
             OpenDashboard();
             Application.Current.MainWindow.Close();
