@@ -25,7 +25,12 @@ namespace Exam.FormUI.ViewModels
         private readonly Action<object> action;
         private readonly Func<object, bool> func;
 
-        public RelayCommand(Action<object> action, Func<object, bool> func = null)
+        public RelayCommand(Action<object> action)
+        {
+            this.action = action;
+        }
+
+        public RelayCommand(Action<object> action, Func<object, bool> func)
         {
             this.action = action;
             this.func = func;
