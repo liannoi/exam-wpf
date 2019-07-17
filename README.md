@@ -24,7 +24,7 @@ to perform CRUD operations on a local collection.
 
 | Visual Studio    | .NET Framework         | C#  |
 |------------------|------------------------|-----|
-| 2017 (or higher) | 4.7.1 (is recommended) | 7.3 |
+| 2017 (or higher) | 4.8 (is recommended)   | 7.3 |
 
 ## Build and Run
 
