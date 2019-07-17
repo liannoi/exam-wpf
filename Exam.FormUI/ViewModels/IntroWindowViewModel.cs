@@ -34,11 +34,6 @@ namespace Exam.FormUI.ViewModels
         #region Fields
 
         /// <summary>
-        /// The class object responsible for file operations.
-        /// </summary>
-        private FileOperation fileOperation;
-
-        /// <summary>
         /// <see cref="ComboBox"/> value. Required to compile the correct log
         /// file.
         /// </summary>
@@ -81,7 +76,7 @@ namespace Exam.FormUI.ViewModels
         /// </summary>
         private void SaveSettings()
         {
-            fileOperation = new FileOperation
+            FileOperation fileOperation = new FileOperation
             {
                 Settings = new Settings
                 {
@@ -169,7 +164,7 @@ namespace Exam.FormUI.ViewModels
         /// <summary>
         /// Describes the opening actions of the main form.
         /// </summary>
-        private void OpenDashboard()
+        private static void OpenDashboard()
         {
             DashboardWindow dashboardWindow = new DashboardWindow();
             dashboardWindow.Show();
