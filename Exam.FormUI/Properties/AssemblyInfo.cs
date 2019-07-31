@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Exam.FormUI")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Products Info")]
+[assembly: AssemblyDescription("Examination project performed by me at the STEP Computer Academy")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("Exam.FormUI")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2019")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Windows Presentation Foundation Exam Project")]
+[assembly: AssemblyCopyright("Copyright Maksym Liannoi 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
